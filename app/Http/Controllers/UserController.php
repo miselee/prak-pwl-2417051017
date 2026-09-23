@@ -19,10 +19,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-       
         $this->userModel->create([
             'nama' => $request->input('nama'),
-            'nim' => $request->input('npm'),
+            'nim' => $request->input('nim'),
             'kelas_id' => $request->input('kelas_id'),
         ]);
 
@@ -45,6 +44,6 @@ class UserController extends Controller
             'title' => 'Create User',
             'kelas' => $kelas,            
         ];
-        return view('user.create', $data);
+        return view('create_user', $data);
     }
 }
