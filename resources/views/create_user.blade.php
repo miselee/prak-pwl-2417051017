@@ -1,31 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
-        <h1>Buat Pengguna Baru</h1>
 
-        <form action="{{ route('user.store') }}" method="POST">
-            @csrf
+<div class="container mt-4">
 
-            <label for="nama">Nama:</label><br>
-            <input type="text" id="nama" name="nama" required>
-            <br><br>
+    <h2 class="mb-4">Buat Pengguna Baru</h2>
 
-            <label for="nim">NIM:</label><br>
-            <input type="text" id="nim" name="nim" required>
-            <br><br>
+    <form action="{{ route('user.store') }}" method="POST">
 
-            <label for="kelas_id">Kelas:</label><br>
-            <select name="kelas_id" id="kelas_id" required>
+        @csrf
+
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input
+                type="text"
+                id="nama"
+                name="nama"
+                class="form-control"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="nim" class="form-label">NIM</label>
+            <input
+                type="text"
+                id="nim"
+                name="nim"
+                class="form-control"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="kelas_id" class="form-label">Kelas</label>
+
+            <select
+                name="kelas_id"
+                id="kelas_id"
+                class="form-select"
+                required>
+
                 @foreach ($kelas as $kelasItem)
                     <option value="{{ $kelasItem->id }}">
                         {{ $kelasItem->nama_kelas }}
                     </option>
                 @endforeach
-            </select>
-            <br><br>
 
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+
+        <a href="/user" class="btn btn-secondary">
+            Kembali
+        </a>
+
+    </form>
+
+</div>
+
 @endsection
