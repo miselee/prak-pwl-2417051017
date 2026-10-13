@@ -10,8 +10,8 @@
                 User
             </a>
 
-            <a class="nav-link" href="/user/create">
-                Tambah Pengguna
+            <a class="nav-link" href="/matakuliah">
+                Mata Kuliah
             </a>
         </div>
 
